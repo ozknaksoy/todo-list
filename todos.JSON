@@ -1,0 +1,29 @@
+{
+    "todos": [
+        {
+            "id": 1,
+            "text": "Order cat food",
+            "completed": false
+        },
+        {
+            "id": 2,
+            "text": "Clean kitchen",
+            "completed": true
+        },
+        {
+            "id": 3,
+            "text": "Buy food",
+            "completed": true
+        },
+        {
+            "id": 4,
+            "text": "Do work",
+            "completed": false
+        },
+        {
+            "id": 5,
+            "text": "Exercise",
+            "completed": false
+        }
+    ]
+}

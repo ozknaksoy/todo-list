@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./main.css" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <div class="container">
+      <span class="title">Todo app</span>
+      <div class="main-container">
+        <div class="input-container">
+          <input id="todo-input" type="text" />
+          <button id="add-button" class="add-button">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+        <div id="todos" class="list-container">
+          <!-- ToDo -->
+        </div>
+        <div class="button-container">
+          <button class="completed">Completed</button>
+          <button class="in-completed">Incompleted</button>
+          <button class="all">All</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
