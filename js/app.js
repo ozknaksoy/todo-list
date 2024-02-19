@@ -3,6 +3,9 @@ import { Request } from "./request.js";
 
 let todoInput = document.getElementById("todo-input");
 let addButton = document.getElementById("add-button");
+let completedButton = document.getElementById("completed");
+let inCompletedButton = document.getElementById("in-completed");
+let allButton = document.getElementById("all");
 // let todosContainer = document.getElementById("todos");
 
 const request = new Request();
@@ -29,7 +32,7 @@ function handleAddTodo() {
   }
 }
 request.get("http://localhost:3000/todos").then((res) => {
-  console.log(res);
+  // console.log(res);
   ui.addTodoToList(res);
 });
 

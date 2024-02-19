@@ -1,29 +1,24 @@
 {
   "todos": [
     {
-      "id": "1",
-      "text": "Order cat food",
-      "completed": false
+      "id": "3b1f",
+      "text": "asdad"
     },
     {
-      "id": "2",
-      "text": "Clean kitchen",
-      "completed": true
+      "id": "386c",
+      "text": "asdad"
     },
     {
-      "id": "3",
-      "text": "Buy food",
-      "completed": true
+      "id": "f0c3",
+      "text": "asda"
     },
     {
-      "id": "4",
-      "text": "Do work",
-      "completed": false
+      "id": "34f8",
+      "text": "asdas"
     },
     {
-      "id": "5",
-      "text": "Exercise",
-      "completed": false
+      "id": "b86d",
+      "text": "asda"
     }
   ]
 }
