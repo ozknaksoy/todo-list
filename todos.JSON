@@ -1,24 +1,3 @@
 {
-  "todos": [
-    {
-      "id": "3b1f",
-      "text": "asdad"
-    },
-    {
-      "id": "386c",
-      "text": "asdad"
-    },
-    {
-      "id": "f0c3",
-      "text": "asda"
-    },
-    {
-      "id": "34f8",
-      "text": "asdas"
-    },
-    {
-      "id": "b86d",
-      "text": "asda"
-    }
-  ]
+  "todos": []
 }

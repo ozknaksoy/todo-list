@@ -4,7 +4,7 @@ import { Request } from "./request.js";
 let todoInput = document.getElementById("todo-input");
 let addButton = document.getElementById("add-button");
 let completedButton = document.getElementById("completed");
-let inCompletedButton = document.getElementById("in-completed");
+let notCompletedButton = document.getElementById("not-completed");
 let allButton = document.getElementById("all");
 // let todosContainer = document.getElementById("todos");
 

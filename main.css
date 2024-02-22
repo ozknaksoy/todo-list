@@ -56,13 +56,14 @@ li {
 button {
   border: none;
   color: white;
+  cursor: pointer;
 }
 .completed {
   background-color: green;
   height: 35px;
   width: 35%;
 }
-.in-completed {
+.not-completed {
   background-color: red;
   height: 35px;
   width: 35%;
@@ -74,5 +75,4 @@ button {
 }
 .x-button {
   background-color: white;
-  cursor: pointer;
 }

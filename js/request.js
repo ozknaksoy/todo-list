@@ -35,6 +35,6 @@ export class Request {
     const response = await fetch(url, {
       method: "DELETE",
     });
-    return "Deletion successful";
+    return response.ok ? "Deletion successful" : "Deletion failed";
   }
 }

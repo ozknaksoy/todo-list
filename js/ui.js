@@ -5,7 +5,7 @@ export class UI {
       todosContainer.innerHTML += `
         <li>
           <span>${todo.text}</span>
-          <button id="delete-todo${todo.id}" class="x-button" onclick="handleDeleteTodo(${todo.id})">
+          <button id="delete-todo-${todo.id}" class="x-button" onclick="handleDeleteTodo('${todo.id}')">
             <i class="fa-solid fa-x icon-delete" style="color: #ff0000"></i>
           </button>
         </li>
@@ -20,7 +20,7 @@ window.handleDeleteTodo = (todoId) => {
   })
     .then((response) => {
       if (response.ok) {
-        document.getElementById(`delete-todo${todoId}`).parentNode.remove();
+        document.getElementById(`delete-todo-${todoId}`).parentNode.remove();
       } else {
         throw new Error("Todo silinemedi.");
       }
