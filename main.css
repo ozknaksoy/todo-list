@@ -24,6 +24,9 @@
   justify-content: space-around;
   align-items: center;
 }
+.input-container {
+  display: flex;
+}
 .main-container input {
   border-radius: 5px 0 0 5px;
   border: 1px solid rgba(0, 0, 0, 0.231);
@@ -52,6 +55,14 @@ li {
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+.checkbox-container {
+  display: flex;
+}
+#check-completed {
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
 }
 button {
   border: none;

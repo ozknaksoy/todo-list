@@ -6,6 +6,7 @@ let addButton = document.getElementById("add-button");
 let completedButton = document.getElementById("completed");
 let notCompletedButton = document.getElementById("not-completed");
 let allButton = document.getElementById("all");
+let checkCompletedTodo = document.getElementById("check-completed");
 // let todosContainer = document.getElementById("todos");
 
 const request = new Request();
@@ -18,6 +19,7 @@ function eventlisteners() {
     }
   });
   addButton.addEventListener("click", handleAddTodo);
+  completedButton.addEventListener("click", completedTodo);
 }
 
 function handleAddTodo() {
@@ -36,4 +38,7 @@ request.get("http://localhost:3000/todos").then((res) => {
   ui.addTodoToList(res);
 });
 
+function completedTodo() {
+ 
+}
 eventlisteners();

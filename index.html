@@ -22,10 +22,27 @@
         </div>
         <div id="todos" class="list-container">
           <!-- ToDo -->
+
+          <!-- <ul>
+            <li>
+              <span>${todo.text}</span>
+              <div class="checkbox-container">
+                <input id="check-completed" type="checkbox" />
+                <button
+                  id="delete-todo-${todo.id}"
+                  class="x-button"
+                  onclick="handleDeleteTodo('${todo.id}')">
+                  <i class="fa-solid fa-x icon-delete" style="color: #ff0000"></i>
+                </button>
+              </div>
+            </li>
+          </ul> -->
         </div>
         <div class="button-container">
           <button id="completed" class="completed">Completed</button>
-          <button id="not-completed" class="not-completed">Incompleted</button>
+          <button id="not-completed" class="not-completed">
+            Not Completed
+          </button>
           <button id="all" class="all">All</button>
         </div>
       </div>
