@@ -6,7 +6,6 @@ let addButton = document.getElementById("add-button");
 let completedButton = document.getElementById("completed");
 let notCompletedButton = document.getElementById("not-completed");
 let allButton = document.getElementById("all");
-let checkCompletedTodo = document.getElementById("check-completed");
 // let todosContainer = document.getElementById("todos");
 
 const request = new Request();
@@ -19,26 +18,29 @@ function eventlisteners() {
     }
   });
   addButton.addEventListener("click", handleAddTodo);
-  completedButton.addEventListener("click", completedTodo);
+  // completedButton.addEventListener("click", completedTodo);
 }
 
-function handleAddTodo() {
+const res = await request.get("http://localhost:3000/todos");
+ui.getAllTodos(res);
+
+async function handleAddTodo(e) {
   let todoInputValue = todoInput.value;
 
   if (todoInputValue === "") {
     alert("Todo alanı boş bırakılamaz.");
   } else {
-    request.post("http://localhost:3000/todos", {
-      text: todoInputValue,
-    });
-  }
-}
-request.get("http://localhost:3000/todos").then((res) => {
-  // console.log(res);
-  ui.addTodoToList(res);
-});
+    let id = (1000 + Math.floor(Math.random() * 9999)).toString();
 
-function completedTodo() {
- 
+    const newTodo = await request.post("http://localhost:3000/todos", {
+      id: id,
+      text: todoInputValue,
+      completed: false,
+    });
+
+    ui.addTodoToList(newTodo);
+  }
+  e.preventDefault;
 }
+
 eventlisteners();

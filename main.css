@@ -59,10 +59,10 @@ li {
 .checkbox-container {
   display: flex;
 }
-#check-completed {
+.check-box {
   margin-right: 5px;
-  width: 15px;
-  height: 15px;
+  width: 15px !important;
+  height: 15px !important;
 }
 button {
   border: none;

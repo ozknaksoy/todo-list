@@ -1,19 +1,34 @@
 export class UI {
+  getAllTodos(todos) {
+    let todosContainer = document.getElementById("todos");
+    todos.forEach((todo) => {
+      todosContainer.innerHTML += `
+        <li>
+          <span>${todo.text}</span>
+          <div class="checkbox-container">
+            <input  class="check-box" id="check-completed-${todo.completed}" type="checkbox" />
+            <button id="delete-todo-${todo.id}" class="x-button" onclick="handleDeleteTodo('${todo.id}')">
+              <i class="fa-solid fa-x icon-delete" style="color: #ff0000"></i>
+            </button>
+          </div>
+        </li>
+      `;
+    });
+  }
+  
   addTodoToList(todos) {
     let todosContainer = document.getElementById("todos");
     todos.forEach((todo) => {
       todosContainer.innerHTML += `
-    <ul>
-      <li>
-         <span>${todo.text}</span>
-         <div class="checkbox-container">
-           <input id="check-completed" type="checkbox" />
+        <li>
+          <span>${todo.text}</span>
+          <div class="checkbox-container">
+            <input  class="check-box" id="check-completed-${todo.completed}" type="checkbox" />
             <button id="delete-todo-${todo.id}" class="x-button" onclick="handleDeleteTodo('${todo.id}')">
-            <i class="fa-solid fa-x icon-delete" style="color: #ff0000"></i>
-           </button>
+              <i class="fa-solid fa-x icon-delete" style="color: #ff0000"></i>
+            </button>
           </div>
-      </li>
-    </ul>
+        </li>
       `;
     });
   }
@@ -34,3 +49,4 @@ window.handleDeleteTodo = (todoId) => {
       console.error("Hata:", error);
     });
 };
+
