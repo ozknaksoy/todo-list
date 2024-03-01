@@ -1,40 +1,34 @@
 export class Request {
-  async get(url) {
-    const response = await fetch(url);
-    const responseData = await response.json();
-    return responseData;
+  constructor() {
+    this.baseUrl = "http://localhost:3000";
   }
 
-  async post(url, data) {
-    const response = await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(data),
+  async sendRequest(path, method = "GET", data = null) {
+    const response = await fetch(`${this.baseUrl}${path}`, {
+      method: method,
+      body: data ? JSON.stringify(data) : null,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
     });
-    const responseData = await response.json();
-    return responseData;
+
+    return response.json();
   }
 
-  async put(url, data) {
-    const response = await fetch(url, {
-      method: "PUT",
-      body: JSON.stringify(data),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    });
-    const responseData = await response.json();
-    return responseData;
+  get(path) {
+    return this.sendRequest(path);
   }
 
-  async delete(url) {
-    const response = await fetch(url, {
-      method: "DELETE",
-    });
-    return response.ok ? "Deletion successful" : "Deletion failed";
+  post(path, data) {
+    return this.sendRequest(path, "POST", data);
+  }
+
+  put(path, data) {
+    return this.sendRequest(path, "PUT", data);
+  }
+
+  delete(path) {
+    return this.sendRequest(path, "DELETE");
   }
 }

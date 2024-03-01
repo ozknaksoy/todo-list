@@ -1,46 +1,63 @@
 import { UI } from "./ui.js";
 import { Request } from "./request.js";
+import { generateUuid } from "./utils.js";
 
-let todoInput = document.getElementById("todo-input");
-let addButton = document.getElementById("add-button");
-let completedButton = document.getElementById("completed");
-let notCompletedButton = document.getElementById("not-completed");
-let allButton = document.getElementById("all");
-// let todosContainer = document.getElementById("todos");
+const TODO_INPUT = document.getElementById("todo-input");
+const ADD_BUTTON = document.getElementById("add-button");
 
 const request = new Request();
 const ui = new UI();
 
-function eventlisteners() {
-  todoInput.addEventListener("keydown", function (event) {
+function initListeners() {
+  TODO_INPUT.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
       handleAddTodo();
     }
   });
-  addButton.addEventListener("click", handleAddTodo);
-  // completedButton.addEventListener("click", completedTodo);
+
+  ADD_BUTTON.addEventListener("click", handleAddTodo);
 }
 
-const res = await request.get("http://localhost:3000/todos");
-ui.getAllTodos(res);
-
-async function handleAddTodo(e) {
-  let todoInputValue = todoInput.value;
-
-  if (todoInputValue === "") {
-    alert("Todo alanı boş bırakılamaz.");
-  } else {
-    let id = (1000 + Math.floor(Math.random() * 9999)).toString();
-
-    const newTodo = await request.post("http://localhost:3000/todos", {
-      id: id,
-      text: todoInputValue,
-      completed: false,
-    });
-
-    ui.addTodoToList(newTodo);
+function validateToDo(value) {
+  if (value === "") {
+    console.error("Todo alanı boş bırakılamaz.");
+    throw new Error("Todo alanı boş bırakılamaz.");
   }
-  e.preventDefault;
+
+  if (value.length > 50) {
+    console.error("Todo alanı 50 karakterden uzun olamaz.");
+    throw new Error("Todo alanı 50 karakterden uzun olamaz.");
+  }
+
+  if (value.length < 3) {
+    console.error("Todo alanı 3 karakterden kısa olamaz.");
+    throw new Error("Todo alanı 3 karakterden kısa olamaz.");
+  }
 }
 
-eventlisteners();
+async function handleAddTodo() {
+  let todoInputValue = TODO_INPUT.value;
+
+  validateToDo(todoInputValue);
+
+  await request.post("/todos", {
+    id: generateUuid(),
+    text: todoInputValue,
+    completed: false,
+  });
+}
+
+function initApplication() {
+  // Initialize event listeners
+  initListeners();
+}
+
+(function () {
+  initApplication();
+
+  setInterval(async () => {
+    console.log("Fetching todos...");
+    const todos = await request.get("/todos");
+    ui.renderTodos(todos);
+  }, 1000);
+})();

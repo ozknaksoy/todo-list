@@ -1,8 +1,10 @@
 export class UI {
-  getAllTodos(todos) {
-    let todosContainer = document.getElementById("todos");
+  renderTodos(todos) {
+    const todosContainer = document.getElementById("todos");
+    let todoList = "";
+
     todos.forEach((todo) => {
-      todosContainer.innerHTML += `
+      todoList += `
         <li>
           <span>${todo.text}</span>
           <div class="checkbox-container">
@@ -14,23 +16,7 @@ export class UI {
         </li>
       `;
     });
-  }
-  
-  addTodoToList(todos) {
-    let todosContainer = document.getElementById("todos");
-    todos.forEach((todo) => {
-      todosContainer.innerHTML += `
-        <li>
-          <span>${todo.text}</span>
-          <div class="checkbox-container">
-            <input  class="check-box" id="check-completed-${todo.completed}" type="checkbox" />
-            <button id="delete-todo-${todo.id}" class="x-button" onclick="handleDeleteTodo('${todo.id}')">
-              <i class="fa-solid fa-x icon-delete" style="color: #ff0000"></i>
-            </button>
-          </div>
-        </li>
-      `;
-    });
+    todosContainer.innerHTML = todoList;
   }
 }
 
@@ -49,4 +35,3 @@ window.handleDeleteTodo = (todoId) => {
       console.error("Hata:", error);
     });
 };
-
