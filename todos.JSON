@@ -1,3 +1,44 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": "1904",
+      "text": "buy milk",
+      "completed": false
+    },
+    {
+      "id": "2765",
+      "text": "read a book",
+      "completed": false
+    },
+    {
+      "id": "2144",
+      "text": "clean the roomm",
+      "completed": false
+    },
+    {
+      "id": "1658",
+      "text": "learn react",
+      "completed": false
+    },
+    {
+      "id": "gc83wwrhrhelt7dwkws",
+      "text": "asdsad",
+      "completed": false
+    },
+    {
+      "id": "4etnibh6jlglt7dz8h5",
+      "text": "abab",
+      "completed": false
+    },
+    {
+      "id": "bp2b1cktht6lt7e0vvu",
+      "text": "mmmmmm",
+      "completed": false
+    },
+    {
+      "id": "k8whrw65s8lt7e16ey",
+      "text": " nnnnnn",
+      "completed": false
+    }
+  ]
 }
